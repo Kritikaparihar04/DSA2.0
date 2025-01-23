@@ -1,0 +1,58 @@
+MAX SUBARRAY
+
+
+1. BRUTE FORCE
+
+
+int maxSubArray(vector<int>& nums) {
+        
+    //we have to create 3 loops. 1st for starting point, one for ending and one for sum
+   int max=nums[0];
+    for(int i=0;i<nums.size();i++)
+    { int sum=0;
+        for(int j=i;j<nums.size();j++)
+        {
+           
+            
+            sum+=nums[j];
+
+            if(sum>max)
+            max=sum;
+        }
+    } 
+     return max;
+
+    }
+
+
+2. Better one
+
+KADANE'S ALGO
+---------------------
+    int maxSubArray(vector<int>& nums) {
+        
+   //KADANE'S ALGO
+
+    int max=INT_MIN;
+    int sum=0;
+
+    for(int i=0;i<nums.size();i++)
+    {
+        //2 checks
+          sum+=nums[i];      //if first element negative hua to max m store krdege phle he so that second condition k karan max 0 naa baj jaae.... ex. [-4]
+          
+         if(sum>max)
+            max=sum;
+
+          //if sum is less than 0 then no point usko aage leke jane ka
+          if(sum<0)
+          {
+            sum=0;
+          }
+        
+
+    }
+    
+   return max;
+
+    }
