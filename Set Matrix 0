@@ -33,6 +33,64 @@ BRUTE
             }
          }
 
+
+BETTER--------------- take 2 vector and mark the particular row and col as 1 if that particular element in matrix is 0
+
+
+    void setZeroes(vector<vector<int>>& matrix) {
+         
+       //we will take 2 vectors to store that row or column which is 0
+
+       int m=matrix.size();
+       int n=matrix[0].size();
+
+
+       vector<int>row;
+       vector<int>col;
+
+     row.assign(m,0);
+     col.assign(n,0);
+     
+       //we will traverse thru the matrix
+
+       for(int i=0;i<m;i++)
+       {
+        for(int j=0;j<n;j++)
+        {
+            if(matrix[i][j]==0)
+            {
+                row[i]=1;
+                col[j]=1;
+            }
+               
+
+        }
+       }
+
+         //set matrix 0
+
+         for(int i=0;i<m;i++)
+         {
+            if(row[i]==1)
+            {
+                for(int j=0;j<n;j++)
+                  {
+                    matrix[i][j]=0;
+                  }
+            }
+         }
+
+             for(int i=0;i<n;i++)
+         {
+            if(col[i]==1)
+            {
+                for(int j=0;j<m;j++)
+                  {
+                    matrix[j][i]=0;
+                  }
+            }
+         }
+    }
        //Setting 0 instead of -1
 
        for(int i=0;i<m;i++)
