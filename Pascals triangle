@@ -1,4 +1,4 @@
-    Nth ROW OF TRIANGLE
+1. Nth ROW OF TRIANGLE
 
 BRUTE force
 ---------------------
@@ -23,3 +23,23 @@ BRUTE force
        }
         return v;
     }
+
+OPTIMISED ONE
+
+//no need to create extra function....observe the pattern
+
+    vector<int> nthRowOfPascalTriangle(int n) {
+        // code here
+        vector<int>v;
+        int ans=1;
+        v.push_back(1);  // assigning 1st element
+       for(int i=1;i<n;i++)
+       {
+          ans=ans*(n-i);       //observe the pattern....purae ans k sath new cheez (row-col)/col ko bhi multiply kro
+          ans=ans/(i);
+          v.push_back(ans);    
+       }
+        return v;
+    }
+
+2. PRINT pascals triangle
