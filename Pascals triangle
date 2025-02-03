@@ -43,3 +43,36 @@ OPTIMISED ONE
     }
 
 2. PRINT pascals triangle
+
+
+//function to create a particular row
+
+    vector<int>nRow(int n)
+    {
+        vector<int>v;
+        int ans=1;
+        v.push_back(ans);
+
+        //we will run a for loop for rest of the row
+
+        for(int i=1;i<n;i++)
+        {
+            ans=ans*(n-i);
+            ans=ans/i;
+            v.push_back(ans);
+        }
+        return v;
+    }
+
+    vector<vector<int>> generate(int numRows) {
+        
+       vector<vector<int>>ans;
+
+       for(int i=1;i<=numRows;i++)
+       {
+        ans.push_back(nRow(i));
+       }
+    
+    return ans;
+     
+    }
